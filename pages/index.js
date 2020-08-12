@@ -10,7 +10,7 @@ const ROLES = [
   'Tech Lover',
   'Team Player',
   'Course Creator',
-  'Vue2',
+  'Vue3',
   'Next JS',
   'React.js',
   'Angular',
