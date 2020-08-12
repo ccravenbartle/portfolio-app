@@ -11,6 +11,7 @@ const ROLES = [
   'Team Player',
   'Course Creator',
   'Vue',
+  'Next JS',
   'React.js',
   'Angular',
 ];
