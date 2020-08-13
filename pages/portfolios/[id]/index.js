@@ -3,9 +3,15 @@ import BasePage from '@/components/BasePage';
 import { useGetUser } from '@/actions/user';
 import { formatDate } from 'helpers/functions';
 import PortfolioApi from '@/lib/api/portfolios';
+import { useRouter } from 'next/router';
 
 const Portfolio = ({ portfolio }) => {
+  const router = useRouter();
   const { data: dataU, loading: loadingU } = useGetUser();
+
+  if (router.isFallback) {
+    return 'Loading...';
+  }
 
   return (
     <BaseLayout navClass='transparent' user={dataU} loading={loadingU}>
@@ -46,6 +52,7 @@ const Portfolio = ({ portfolio }) => {
 };
 
 export async function getStaticPaths() {
+  console.log('reexecuting getStaticPaths');
   const json = await new PortfolioApi().getAll();
   const portfolios = json.data;
   const paths = portfolios.map((portfolio) => {
@@ -54,10 +61,11 @@ export async function getStaticPaths() {
     };
   });
 
-  return { paths, fallback: false };
+  return { paths, fallback: true };
 }
 
 export async function getStaticProps({ params }) {
+  console.log('reexecuting getStaticProps');
   const json = await new PortfolioApi().getById(params.id);
   const portfolio = json.data;
   return { props: { portfolio }, unstable_revalidate: 60 };
