@@ -7,9 +7,10 @@ import "slate-simple-editor/dist/index.css";
 import "@/styles/main.scss";
 
 const App = ({ Component, pageProps }) => {
-  console.log(process.env.AUTH0_DOMAIN);
-  console.log(process.env.AUTH0_REDIRECT_URI);
-  return <Component {...pageProps} />;
+	console.log("AUTH0_DOMAIN: " + process.env.AUTH0_DOMAIN);
+	console.log("AUTH0_REDIRECT_URI: " + process.env.AUTH0_REDIRECT_URI);
+	console.log("AUTH0_NAMESPACE: " + process.env.AUTH0_NAMESPACE);
+	return <Component {...pageProps} />;
 };
 
 export default App;
