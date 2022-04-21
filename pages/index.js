@@ -40,7 +40,7 @@ const Index = () => {
 			navClass="transparent"
 			className={`cover ${isFlipping ? "cover-orange" : "cover-blue"}`}
 		>
-			<BasePage indexPage title="Portfolio - Filip Jerga">
+			<BasePage indexPage title="Portfolio - CCB">
 				<div className="main-section">
 					<div className="background-image">
 						<img src="/images/background-index.png" />
